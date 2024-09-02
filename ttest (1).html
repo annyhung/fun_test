@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的靈魂是哪種奇幻生物？</title>
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image:url('bg4_1.png');
+            margin: 0;
+            background-size: 100% auto;
+            padding: 0;
+            display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-size: 100%;
+    background-position: center top;
+   // background-repeat: no-repeat;
+    flex: 1 1 0%;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+          //  background: #fff;
+            padding: 20px;
+           // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1, h3 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .question.active {
+            display: block;
+        }
+        .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 添加這一行使按鈕在容器中垂直居中 */
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options label {
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: block;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.options label:hover {
+    transform: scale(1.1);
+}
+
+.options img {
+    width: 60%;
+    margin: 5px;
+}
+
+.options label img.default {
+    display: block;
+}
+
+.options label img.hover {
+    display: none;
+}
+
+.options label:hover img.default {
+    display: none;
+}
+
+.options label:hover img.hover {
+    display: block;
+}
+
+.options input[type="radio"]:checked + label img.default {
+    border: 2px solid #3498db;
+    border-radius: 5px;
+}
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .result img {
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+        .start-page {
+            display: block;
+        }
+        .start-page h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+      
+ img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+    display: flex;
+    align-items: center;
+        }
+.css-of1ovp {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: var(--chakra-fonts-sans);
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-top: var(--chakra-space-8);
+    padding-bottom: var(--chakra-space-8);
+}
+.start-btn {
+    display: inline-block;
+    margin-top: 20px;
+    width: 280px; /* 設定按鈕寬度 */
+    height: 95px; /* 設定按鈕高度 */
+    background-image: url('startbtn.png'); /* 預設按鈕圖片 */
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    transition: background-image 0.3s;
+}
+.start-btn:hover {
+    background-image: url('startbtn3.png'); /* 滑鼠移上去的按鈕圖片 */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+	<div class"css-oflovp" >
+        <div class="start-page" id="start-page">
+             <img src="title_2.png" alt="Homepage sImage">
+             <button class="start-btn" onclick="startQuiz()"></button>
+        </div>
+</div>
+        <div class="question" id="question1">
+ 
+           
+            <img src="q1_main_工作區域 1.png" alt="圖片描述" width="500"> 
+            <div class="options">
+                <input type="radio" id="q1a1" name="q1" value="1" onclick="nextQuestion(1)">
+              <label for="q1a1"><img src="q1_btn_b.png" alt="綠色"></label>
+                <input type="radio" id="q1a2" name="q1" value="2" onclick="nextQuestion(1)">
+                <label for="q1a2"><img src="q1_btn_b_2.png" alt="藍色"></label>
+                <input type="radio" id="q1a3" name="q1" value="3" onclick="nextQuestion(1)">
+                <label for="q1a3"><img src="q1_btn_b_3.png" alt="紅色"></label>
+                <input type="radio" id="q1a4" name="q1" value="4" onclick="nextQuestion(1)">
+                <label for="q1a4"><img src="q1_btn_b_4.png" alt="紫色"></label>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            
+            <img src="q2_main.png" alt="圖片描述" width="500">
+            <div class="options">
+                <input type="radio" id="q2a1" name="q2" value="1" onclick="nextQuestion(2)">
+                <label for="q2a1"><img src="q2_btn_1.png" alt="飛行"></label>
+                <input type="radio" id="q2a2" name="q2" value="2" onclick="nextQuestion(2)">
+                <label for="q2a2"><img src="q2_btn_2.png" alt="隱形"></label>
+                <input type="radio" id="q2a3" name="q2" value="3" onclick="nextQuestion(2)">
+                <label for="q2a3"><img src="q2_btn_3.png" alt="瞬間移動"></label>
+                <input type="radio" id="q2a4" name="q2" value="4" onclick="nextQuestion(2)">
+                <label for="q2a4"><img src="q2_btn_4.png" alt="控制時間"></label>
+            </div>
+        </div>
+        <div class="question" id="question3">
+          
+            <img src="q3_main_工作區域 1.png" alt="圖片描述" width="500">
+            <div class="options">
+                <input type="radio" id="q3a1" name="q3" value="1" onclick="nextQuestion(3)">
+                <label for="q3a1"><img src="q3_btn_1.png" alt="勇敢的騎士"></label>
+                <input type="radio" id="q3a2" name="q3" value="2" onclick="nextQuestion(3)">
+                <label for="q3a2"><img src="q3_btn_2.png" alt="智慧的巫師"></label>
+                <input type="radio" id="q3a3" name="q3" value="3" onclick="nextQuestion(3)">
+                <label for="q3a3"><img src="q3_btn_3.png" alt="神秘的刺客"></label>
+                <input type="radio" id="q3a4" name="q3" value="4" onclick="nextQuestion(3)">
+                <label for="q3a4"><img src="q3_btn_4.png" alt="強大的戰士"></label>
+            </div>
+        </div>
+        <div class="question" id="question4">
+
+            <img src="q4_main_工作區域 1.png" alt="圖片描述" width="500">
+            <div class="options">
+                <input type="radio" id="q4a1" name="q4" value="1" onclick="nextQuestion(4)">
+                <label for="q4a1"><img src="q4_btn_1.png" alt="蔬菜水果"></label>
+                <input type="radio" id="q4a2" name="q4" value="2" onclick="nextQuestion(4)">
+                <label for="q4a2"><img src="q4_btn_2.png" alt="海鮮"></label>
+                <input type="radio" id="q4a3" name="q4" value="3" onclick="nextQuestion(4)">
+                <label for="q4a3"><img src="q4_btn_3.png" alt="燒烤"></label>
+                <input type="radio" id="q4a4" name="q4" value="4" onclick="nextQuestion(4)">
+                <label for="q4a4"><img src="q4_btn_4.png" alt="甜點"></label>
+            </div>
+        </div>
+        <div class="question" id="question5">
+       
+            <img src="q5_main_工作區域 1.png" alt="圖片描述" width="500" >
+            <div class="options">
+                <input type="radio" id="q5a1" name="q5" value="1" onclick="showResult()">
+                <label for="q5a1"><img src="q5_btn_1.png" alt="幽暗的森林"></label>
+                <input type="radio" id="q5a2" name="q5" value="2" onclick="showResult()">
+                <label for="q5a2"><img src="q5_btn_2.png" alt="藍色的海洋"></label>
+                <input type="radio" id="q5a3" name="q5" value="3" onclick="showResult()">
+                <label for="q5a3"><img src="q5_btn_3.png" alt="高聳的山脈"></label>
+                <input type="radio" id="q5a4" name="q5" value="4" onclick="showResult()">
+                <label for="q5a4"><img src="q5_btn_4.png" alt="神秘的古城"></label>
+            </div>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let totalQuestions = 5;
+        let score = 0;
+        function startQuiz() {
+            document.getElementById('start-page').style.display = 'none';
+            document.getElementById('question1').classList.add('active');
+        }
+        
+        function nextQuestion(questionNumber) {
+            let selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+            if (selectedOption) {
+                score += parseInt(selectedOption.value);
+                document.getElementById(`question${questionNumber}`).classList.remove('active');
+                currentQuestion++;
+                if (currentQuestion <= totalQuestions) {
+                    document.getElementById(`question${currentQuestion}`).classList.add('active');
+                }
+            } else {
+                alert('請選擇一個選項！');
+            }
+        }
+
+        function showResult() {
+            let selectedOption = document.querySelector(`input[name="q${totalQuestions}"]:checked`);
+            if (selectedOption) {
+                score += parseInt(selectedOption.value);
+                document.querySelectorAll('.question').forEach(question => question.classList.remove('active'));
+
+                let resultText = '';
+                let resultImage = '';
+                if (score >= 5 && score <= 7) {
+                    resultImage = 'result_1.png';
+                } else if (score >= 8 && score <= 10) {
+                    resultImage = 'result_2.png';
+                } else if (score >= 11 && score <= 13) {
+                    resultImage = 'result_3.png';
+                } else if (score >= 14 && score <= 16) {
+                    resultImage = 'result_4.png';
+                }
+
+                let resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<p>${resultText}</p><img src="${resultImage}" alt="${resultText}" width="500">`;
+                resultDiv.style.display = 'block';
+            } else {
+                alert('請選擇一個選項！');
+            }
+        }
+    </script>
+</body>
+</html>
